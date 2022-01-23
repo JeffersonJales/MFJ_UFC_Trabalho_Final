@@ -23,13 +23,14 @@
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":53,"eventType":6,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
     {"varType":6,"value":"BOUNDING_TYPE.AABB","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "BOUNDING_TYPE.CIRCLE",
         "BOUNDING_TYPE.AABB",
         "BOUNDING_TYPE.OBB",
-      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"bounding_by","tags":[],"resourceType":"GMObjectProperty",},
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"bounding_type","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

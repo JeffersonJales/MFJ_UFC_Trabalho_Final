@@ -18,13 +18,18 @@ draw_points_ind = 0;
 add_point_draw_time = 5;
 alarm[0] = add_point_draw_time;
 
+/// ADD NEW POINTS
+points_add = [];
+
+
 /// CHECK IF HAVE COLLISION
-point_collision = false;
 
 bounding_form = undefined;
 
-switch(bounding_by){
-	case BOUNDING_TYPE.CIRCLE:	bounding_form = new Circle_BB(points); break;
-	case BOUNDING_TYPE.AABB:		bounding_form = new AABB(points); break;
-	case BOUNDING_TYPE.OBB:			bounding_form = new Circle_BB(points); break;
+switch(bounding_type){
+	case BOUNDING_TYPE.CIRCLE:	bounding_form = new Circle_BB(); break;
+	case BOUNDING_TYPE.AABB:		bounding_form = new AABB(); break;
+	case BOUNDING_TYPE.OBB:			bounding_form = new Circle_BB(); break;
 }
+
+bounding_form.fit(points);

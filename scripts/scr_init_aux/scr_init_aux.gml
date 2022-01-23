@@ -21,7 +21,11 @@ global.window = {
 #macro RANDOM_AREA_HEIGHT irandom_range(room_height * 0.1, room_height * 0.25)
 
 
-enum BOUNDING_TYPE { AABB, OBB, CIRCLE }
+enum BOUNDING_TYPE { AABB, OBB, CIRCLE, __COUNT }
+global.bounding_type_text = array_create(BOUNDING_TYPE.__COUNT);
+global.bounding_type_text[BOUNDING_TYPE.AABB] = "AABB";
+global.bounding_type_text[BOUNDING_TYPE.OBB] = "OBB";
+global.bounding_type_text[BOUNDING_TYPE.CIRCLE] = "Círculo";
 
 function create_random_point(){
 	var _x = irandom_range(RANDOM_AREA_XSTART - RANDOM_AREA_WIDTH, RANDOM_AREA_XSTART + RANDOM_AREA_WIDTH);
@@ -35,5 +39,15 @@ function create_random_point(){
 function inputs(){
 	if(keyboard_check_pressed(vk_space))	
 		room_restart();
+}
+
+function add_point_mouse(bounding_area){
+	var _vec2 = new Vec2Color(mouse_x, mouse_y, c_white);
+	var _inside = bounding_area.point_inside(_vec2);
+	
+	if(_inside) _vec2.draw_color = c_lime;
+	else _vec2.draw_color = c_red;
+	
+	return _vec2;
 }
 

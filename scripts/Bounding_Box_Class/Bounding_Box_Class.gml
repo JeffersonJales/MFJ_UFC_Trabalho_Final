@@ -1,19 +1,17 @@
-function BoudingAbstract(vec2_arr) constructor{
+function BoudingAbstract() constructor{
 	bouding_type = BOUNDING_TYPE.AABB;
 	
 	static draw = function(){}
 	static point_inside = function(vec2){ return false }
 	
 	static fit = function(vec2_arr){}
-	
-	fit(vec2_arr);
 }
 
 
-function AABB(vec2_arr) constructor{
+function AABB() constructor{
 	p_min = new Vec2(0,0);
 	p_max = new Vec2(0,0);
-	bouding_type = BOUNDING_TYPE.AABB;
+	bounding_type = BOUNDING_TYPE.AABB;
 
 	static fit = function(vec2_arr){
 		var _len = array_length(vec2_arr);
@@ -24,7 +22,6 @@ function AABB(vec2_arr) constructor{
 		var _min_y = vec2_arr[0].y;
 		var _max_y = vec2_arr[0].y;
 
-		
 		var _point;
 		for(var i = 1; i < _len; i++){
 			_point = vec2_arr[i];
@@ -49,14 +46,12 @@ function AABB(vec2_arr) constructor{
 					 vec2.y >= p_min.y && vec2.y <= p_max.y;
 	}
 	
-	fit(vec2_arr);
-	
 }
 
-function Circle_BB(points_arr) constructor{
+function Circle_BB() constructor{
 	center = new Vec2(0, 0);
 	radius = 1;
-	BOUNDING_TYPE = BOUNDING_TYPE.CIRCLE;
+	bounding_type = BOUNDING_TYPE.CIRCLE;
 	
 	static draw = function(){
 		draw_circle(center.x, center.y, radius, true);
@@ -65,10 +60,6 @@ function Circle_BB(points_arr) constructor{
 	static point_inside = function(vec2){
 		return center.distance(vec2) <= radius;
 	}
-	
-	/// GERA UM PONTO ALEATÓRIO QUE SERÁ O CENTRO. 
-	/// PEGA O PONTO MAIS DISTANCE. A DISTANCIA ENTRE ESSES DOIS PONTOS É O RAIO.
-	/// SALVAR O CENTRO EM QUE O RAIO FOR O MENOR.
 	
 	static fit = function(points_arr){
 		var _aabb = new AABB(points_arr);
@@ -93,6 +84,4 @@ function Circle_BB(points_arr) constructor{
 		radius = _best_radius;
 		center = _best_center;
 	}
-	
-	fit(points_arr);
 }
