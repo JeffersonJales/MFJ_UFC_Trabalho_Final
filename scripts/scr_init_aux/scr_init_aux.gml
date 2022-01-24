@@ -51,3 +51,6 @@ function add_point_mouse(bounding_area){
 	return _vec2;
 }
 
+function irr(val_1, val_2){
+	return irandom_range(val_1, val_2);	
+}
