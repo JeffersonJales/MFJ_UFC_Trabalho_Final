@@ -14,7 +14,7 @@ global.window = {
 #macro RANDOM_VECTOS_MAX 30
 #macro RANDOM_VECTOR_NUM irandom_range(RANDOM_VECTOS_MIN, RANDOM_VECTOS_MAX)
 
-#macro RANDOM_AREA_XSTART room_width	* 0.5  
+#macro RANDOM_AREA_XSTART room_width * 0.5  
 #macro RANDOM_AREA_YSTART room_height * 0.5  
 
 #macro RANDOM_AREA_WIDTH  irandom_range(room_width  * 0.1, room_width * 0.3)
