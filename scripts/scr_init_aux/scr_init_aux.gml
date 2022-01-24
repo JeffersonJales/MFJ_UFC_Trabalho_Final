@@ -3,10 +3,10 @@
 draw_set_font(fnt_arial);
 
 global.window = {
-	center_x : display_get_gui_width() * 0.5,
-	center_y : display_get_gui_height() * 0.5,
-	width : display_get_gui_width(),
-	height : display_get_gui_height(),
+	center_x : window_get_width() * 0.5,
+	center_y : window_get_height() * 0.5,
+	width : window_get_width(),
+	height : window_get_height(),
 }
 
 

@@ -1,6 +1,6 @@
 
 function Vec2(_x, _y) constructor {
-	x = _x ?? 0; ;
+	x = _x ?? 0;
 	y = _y ?? 0;
 	
 	static draw = function(radius = 3){
@@ -9,6 +9,11 @@ function Vec2(_x, _y) constructor {
 	
 	static distance = function(vec2){
 		return sqrt( sqr(vec2.x - x) + sqr(vec2.y - y) ); 
+	}
+	
+	static translate = function(_x, _y){
+		x += _x;
+		y += _y;
 	}
 }
 

@@ -46,25 +46,25 @@ function AABB() constructor{
 					 vec2.y >= p_min.y && vec2.y <= p_max.y;
 	}
 	
-	static create = function(x, y, width, height){
-		p_min.x = x;
-		p_min.y = y;
-		
-		p_max.x = x + width;
-		p_max.y = y + height;
+	static create = function(_x, _y, width, height){
+		p_min = new Vec2(_x, _y);
+		p_max = new Vec2(_x + width, _y + height);
 	}
 	
-	static translate = function(x, y){
-		p_min.x += x;
-		p_max.x += x;
-		p_min.y += y;
-		p_max.y += y;
-		
+	static translate = function(_x, _y){
+		show_debug_message("Breaks Bellow");
+
+		p_min.x += _x;
+		p_max.x += _x;
+		p_min.y += _y;
+		p_max.y += _y;
+		show_debug_message("Breaks Up");
+
 	}
 }
 
 function Circle_BB() constructor{
-	center = new Vec2(0, 0);
+	center = new Vec2(50, 50);
 	radius = 1;
 	bounding_type = BOUNDING_TYPE.CIRCLE;
 	draw_color = c_yellow;
@@ -112,14 +112,13 @@ function Circle_BB() constructor{
 	}
 		
 	static create = function(x, y, r){
-		center.x = x;
-		center.y = y;
+		center = new Vec2(x, y);
 		radius = r;	
 	}
 	
-	static translate = function(x, y){
-		center.x += x;
-		center.y += y;
+	static translate = function(_x, _y){
+		center.x += _x;
+		center.y += _y;
 	}
 }
 	

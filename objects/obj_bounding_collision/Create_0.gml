@@ -9,9 +9,15 @@ bounding_areas = array_create(2, undefined);
 
 input_choose = function(){
 	
-	if(keyboard_check_pressed(ord("1")))			collision_teste = COLLISION.AABB_AABB;
-	else if(keyboard_check_pressed(ord("2"))) collision_teste = COLLISION.AABB_CIRCLE;
-	else if(keyboard_check_pressed(ord("3"))) collision_teste = COLLISION.CIRCLE_CIRCLE;
+	if(keyboard_check_pressed(ord("1")))			
+		collision_teste = COLLISION.AABB_AABB;
+	
+	else if(keyboard_check_pressed(ord("2"))) 
+		collision_teste = COLLISION.AABB_CIRCLE;
+	
+	else if(keyboard_check_pressed(ord("3"))) 
+		collision_teste = COLLISION.CIRCLE_CIRCLE;
+	
 	
 	if(collision_teste != COLLISION.NOONE){
 		collision_state = COLLISION_CHECK_STATE.HANDLE_COLLISION;
@@ -21,27 +27,38 @@ input_choose = function(){
 		
 		switch(collision_teste){
 			case COLLISION.AABB_AABB: 
-				bounding_areas[0] = new AABB();  
-				bounding_areas[1] = new AABB();
+				var _aabb_1 = new AABB();
+				var _aabb_2 = new AABB();
 				
-				bounding_areas[0].create(_center_x - 150, _center_y, irr(50,125), irr(50, 125));
-				bounding_areas[1].create(_center_x + 150, _center_y, irr(50,125), irr(50, 125));
+				bounding_areas[0] = _aabb_1;  
+				bounding_areas[1] = _aabb_2;
+				
+				_aabb_1.create(_center_x - 150, _center_y, irr(50,125), irr(50, 125));
+				_aabb_2.create(_center_x + 150, _center_y, irr(50,125), irr(50, 125));
+			
 			break;
 			
 			case COLLISION.AABB_CIRCLE:
-				bounding_areas[0] = new AABB();  
-				bounding_areas[1] = new Circle_BB();
+				var _aabb_1 = new AABB();
+				var _circle = new Circle_BB();
 				
-				bounding_areas[0].create(_center_x - 150, _center_y, irr(50,125), irr(50, 125));
-				bounding_areas[1].create(_center_x + 150, _center_y, irr(50, 75));
+				bounding_areas[0] = _aabb_1;  
+				bounding_areas[1] = _circle;
+				
+				
+				_aabb_1.create(_center_x - 150, _center_y, irr(50,125), irr(50, 125));
+				_circle.create(_center_x + 150, _center_y, irr(25, 100));
 			break;
 			
 			case COLLISION.CIRCLE_CIRCLE:
-				bounding_areas[0] = new Circle_BB();  
-				bounding_areas[1] = new Circle_BB();
+				var _circle_1 = new Circle_BB();
+				var _circle_2 = new Circle_BB();
 				
-				bounding_areas[0].create(_center_x - 150, _center_y, irr(50, 75));
-				bounding_areas[1].create(_center_x + 150, _center_y, irr(50, 75));
+				bounding_areas[0] = _circle_1;  
+				bounding_areas[1] = _circle_2;
+			
+				_circle_1.create(_center_x - 150, _center_y, irr(25, 100));
+				_circle_2.create(_center_x + 150, _center_y, irr(25, 100));
 			break;
 		}
 	}
@@ -49,8 +66,8 @@ input_choose = function(){
 
 mouse_image = function(){
 	var _vec2 = new Vec2(mouse_x, mouse_y);
-	var _inside = bounding_areas[0].point_inside(_vec2) || 
-								bounding_areas[1].point_inside(_vec2);
+	var _inside =	bounding_areas[0].point_inside(_vec2) || 
+					bounding_areas[1].point_inside(_vec2);
 
 	if(_inside) window_set_cursor(cr_drag)
 	else 	window_set_cursor(cr_default);
