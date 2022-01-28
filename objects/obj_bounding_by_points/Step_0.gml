@@ -1,5 +1,12 @@
 /// @description RESTART
+input_reset();
 
-point_collision = bounding_form.point_inside(new Vec2(mouse_x, mouse_y));
-inputs();
+switch(bound_state){
+	case BOUNDING_STATE.SELECET_FORM: select_form_input(); break;
+	case BOUNDING_STATE.DRAW_POINTS: 
+	case BOUNDING_STATE.CHECK_COLLISION: 
+		inputs();
+	break;
+}
+
 

@@ -1,5 +1,5 @@
 /// @description INIT
-enum COLLISION { NOONE, AABB_AABB, AABB_CIRCLE, CIRCLE_CIRCLE, __COUNT }
+enum COLLISION { NOONE, AABB_AABB, AABB_CIRCLE, CIRCLE_CIRCLE, OBB_AABB, OBB_OBB, OBB_CIRCLE, __COUNT }
 collision_teste = COLLISION.NOONE;
 
 enum COLLISION_CHECK_STATE { CHOOSE_COLLISION, HANDLE_COLLISION, DRAGING_PRIMITIVE }
@@ -17,6 +17,16 @@ input_choose = function(){
 	
 	else if(keyboard_check_pressed(ord("3"))) 
 		collision_teste = COLLISION.CIRCLE_CIRCLE;
+	
+	else if(keyboard_check_pressed(ord("4"))) 
+		collision_teste = COLLISION.OBB_AABB;
+	
+	else if(keyboard_check_pressed(ord("5"))) 
+		collision_teste = COLLISION.OBB_OBB;
+	
+	else if(keyboard_check_pressed(ord("6"))) 
+		collision_teste = COLLISION.OBB_CIRCLE;
+	
 	
 	
 	if(collision_teste != COLLISION.NOONE){
@@ -60,6 +70,42 @@ input_choose = function(){
 				_circle_1.create(_center_x - 150, _center_y, irr(25, 100));
 				_circle_2.create(_center_x + 150, _center_y, irr(25, 100));
 			break;
+			
+			case COLLISION.OBB_AABB: 
+				var _obb = new OBB();
+				var _aabb = new AABB();
+
+				bounding_areas[0] = _obb;  
+				bounding_areas[1] = _aabb;
+				
+				_obb.create(_center_x - 150, _center_y, irandom_range(50, 100), irandom_range(50, 100), irandom(359));
+				_aabb.create(_center_x + 150, _center_y, irr(50,125), irr(50, 125))
+			break;
+			
+			case COLLISION.OBB_OBB: 
+				var _obb_1 = new OBB();
+				var _obb_2 = new OBB();
+
+				bounding_areas[0] = _obb_1;  
+				bounding_areas[1] = _obb_2;
+				
+				_obb_1.create(_center_x - 150, _center_y, irandom_range(50, 100), irandom_range(50, 100), irandom(359));
+				_obb_2.create(_center_x + 150, _center_y, irandom_range(50, 100), irandom_range(50, 100), irandom(359));
+			
+			break;
+			
+			
+			case COLLISION.OBB_CIRCLE: 
+				var _obb = new OBB();
+				var _circle = new Circle_BB();
+
+				bounding_areas[0] = _obb;  
+				bounding_areas[1] = _circle;
+				
+				_obb.create(_center_x - 150, _center_y, irandom_range(50, 100), irandom_range(50, 100), irandom(359));
+				_circle.create(_center_x + 150, _center_y, irr(25, 100));
+			break;
+			
 		}
 	}
 }
@@ -127,6 +173,20 @@ collision_test = function(){
 		case COLLISION.CIRCLE_CIRCLE: 
 			bouding_collision = Circle_overlap_Circle(bounding_areas[0], bounding_areas[1]); 
 		break;
+		
+		case COLLISION.OBB_OBB: 
+			bouding_collision = OBB_overlap_OBB(bounding_areas[0], bounding_areas[1]); 
+		break;
+		
+		case COLLISION.OBB_AABB: 
+			bouding_collision = OBB_overlap_AABB(bounding_areas[0], bounding_areas[1]); 
+		break;
+		
+		case COLLISION.OBB_CIRCLE: 
+			bouding_collision = OBB_overlap_Circle(bounding_areas[0], bounding_areas[1]); 
+		break;
+		
+		
 	}
 	
 	if(bouding_collision) {

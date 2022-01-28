@@ -4,11 +4,11 @@
     {"id":{"name":"rm_collision_test","path":"rooms/rm_collision_test/rm_collision_test.yy",},"order":3,},
     {"id":{"name":"Vec2_class","path":"scripts/Vec2_class/Vec2_class.yy",},"order":1,},
     {"id":{"name":"scr_init_aux","path":"scripts/scr_init_aux/scr_init_aux.yy",},"order":0,},
-    {"id":{"name":"rm_circle_point","path":"rooms/rm_circle_point/rm_circle_point.yy",},"order":2,},
-    {"id":{"name":"rm_aabb_point","path":"rooms/rm_aabb_point/rm_aabb_point.yy",},"order":1,},
+    {"id":{"name":"rm_bounding_point","path":"rooms/rm_bounding_point/rm_bounding_point.yy",},"order":1,},
     {"id":{"name":"fnt_arial","path":"fonts/fnt_arial/fnt_arial.yy",},"order":0,},
     {"id":{"name":"obj_bounding_by_points","path":"objects/obj_bounding_by_points/obj_bounding_by_points.yy",},"order":0,},
     {"id":{"name":"Bounding_Box_Class","path":"scripts/Bounding_Box_Class/Bounding_Box_Class.yy",},"order":2,},
+    {"id":{"name":"obj_intro","path":"objects/obj_intro/obj_intro.yy",},"order":2,},
     {"id":{"name":"rm_intro","path":"rooms/rm_intro/rm_intro.yy",},"order":0,},
   ],
   "Options": [
@@ -25,15 +25,15 @@
   ],
   "isDnDProject": false,
   "isEcma": false,
+  "tutorialPath": "",
   "configs": {
     "name": "Default",
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_collision_test","path":"rooms/rm_collision_test/rm_collision_test.yy",},},
-    {"roomId":{"name":"rm_circle_point","path":"rooms/rm_circle_point/rm_circle_point.yy",},},
-    {"roomId":{"name":"rm_aabb_point","path":"rooms/rm_aabb_point/rm_aabb_point.yy",},},
     {"roomId":{"name":"rm_intro","path":"rooms/rm_intro/rm_intro.yy",},},
+    {"roomId":{"name":"rm_bounding_point","path":"rooms/rm_bounding_point/rm_bounding_point.yy",},},
+    {"roomId":{"name":"rm_collision_test","path":"rooms/rm_collision_test/rm_collision_test.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
@@ -59,7 +59,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.1.0.465",
+    "IDEVersion": "2.3.7.606",
   },
   "resourceVersion": "1.4",
   "name": "MFJ_Trabalho_Final",

@@ -6,6 +6,9 @@ if(collision_state == COLLISION_CHECK_STATE.CHOOSE_COLLISION){
 	draw_text(20, 60, "1: AABB x AABB");
 	draw_text(20, 80, "2: AABB x Círculo");
 	draw_text(20, 100, "3: Círculo x Círculo");
+	draw_text(20, 120, "4: OBB x AABB");
+	draw_text(20, 140, "5: OBB x OBB");
+	draw_text(20, 160, "6: OBB x Círculo");
 }
 else {
 	draw_text(20, 40, "Você pode mover uma primitiva!");

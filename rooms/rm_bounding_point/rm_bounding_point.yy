@@ -25,7 +25,7 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_28888F03","path":"rooms/rm_aabb_point/rm_aabb_point.yy",},
+    {"name":"inst_28888F03","path":"rooms/rm_bounding_point/rm_bounding_point.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
@@ -53,7 +53,7 @@
     "path": "folders/Rooms.yy",
   },
   "resourceVersion": "1.0",
-  "name": "rm_aabb_point",
+  "name": "rm_bounding_point",
   "tags": [],
   "resourceType": "GMRoom",
 }

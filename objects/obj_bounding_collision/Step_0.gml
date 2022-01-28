@@ -1,4 +1,5 @@
 /// @description STATE MACHINE
+
 switch(collision_state){
 	case COLLISION_CHECK_STATE.CHOOSE_COLLISION:
 		input_choose();
@@ -15,4 +16,5 @@ switch(collision_state){
 	break;
 }
 
+input_reset();
 inputs();

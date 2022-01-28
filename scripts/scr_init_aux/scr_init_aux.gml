@@ -1,13 +1,24 @@
 /// INIT GLOBAL AND MACROS 
+#macro CHECK_HTML os_browser == browser_not_a_browser
+global.on_browser = CHECK_HTML;
 
 draw_set_font(fnt_arial);
 
-global.window = {
-	center_x : window_get_width() * 0.5,
-	center_y : window_get_height() * 0.5,
-	width : window_get_width(),
-	height : window_get_height(),
-}
+
+if(!global.on_browser)
+	global.window = {
+		center_x : window_get_width() * 0.5,
+		center_y : window_get_height() * 0.5,
+		width : window_get_width(),
+		height : window_get_height(),
+	}
+else 
+	global.window = {
+		center_x : display_get_gui_width() * 0.5,
+		center_y : display_get_gui_height() * 0.5,
+		width : display_get_gui_width(),
+		height : display_get_gui_height(),
+	}
 
 
 #macro RANDOM_VECTOS_MIN 10
@@ -39,6 +50,11 @@ function create_random_point(){
 function inputs(){
 	if(keyboard_check_pressed(vk_space))	
 		room_restart();
+}
+
+function input_reset(){
+	if(keyboard_check_pressed(vk_escape))
+		room_goto(rm_intro);
 }
 
 function add_point_mouse(bounding_area){
