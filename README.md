@@ -1,7 +1,7 @@
 
 # Matemática e Física Para Jogos - trabalho final
 
-Trabalho final da cadeira de Matemática e física aplicada a jogos. Do curso de Sistemas e Mídias Digitais da Universidade Federal do Ceará.
+Trabalho final da cadeira de Matemática e física aplicada a jogos do curso de Sistemas e Mídias Digitais da Universidade Federal do Ceará.
 
 ## Demo (web)
 
