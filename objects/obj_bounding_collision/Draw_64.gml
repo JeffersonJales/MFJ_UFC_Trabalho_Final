@@ -17,8 +17,10 @@ else {
 	draw_text(20, 100, "Se houver colisão -> Primitivas de VERMELHO");
 	draw_text(20, 120, "Se NÃO houver colisão -> Primitivas de AMARELO");
 	
-	draw_text(20, global.window.height - 20, "ESPAÇO: Escolher novo tipo de teste de colisão");
 }
+
+draw_text(20, global.window.height - 20, "ESPAÇO: Escolher novo tipo de teste de colisão");
+draw_text(20, global.window.height - 40, "ESC: Voltar para o menu");
 
 
 draw_set_halign(fa_center)
